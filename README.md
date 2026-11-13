@@ -18,6 +18,17 @@ A request processing plugin that keeps credentials out of model traffic. It find
 
 Requires new-api v1.0.0-rc.50 or later (request processing plugins). The plugin has no channel part: it is not a channel type and needs no vendor account or key.
 
+## Compared with the built-in Request redaction
+
+New API ships a built-in request processing plugin, Request redaction, whose `api_key` type replaces key-like strings with a single regular expression. Secret Guard is meant for gateways that need more than that:
+
+- 19 dedicated detectors, including private key blocks, AWS, Alibaba Cloud and Tencent Cloud key pairs, database connection strings with passwords, decodable JWTs and vendor tokens.
+- A per-detector action: block the request, mask the value, or log only. Request redaction can only replace.
+- Logs carry the detector name and an optional short fingerprint, never the secret itself.
+- An allowlist, placeholder and documentation-example skipping, and custom detectors.
+
+Both can run on the same gateway. If you only need simple masking of personal data and generic keys, the built-in plugin is enough.
+
 ## Install
 
 1. In the admin console open the plugin page and install the plugin from the community market, or upload `plugin.js`.
