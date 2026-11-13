@@ -1,0 +1,1899 @@
+{
+  "cases": [
+    {
+      "name": "blocks openai_api_key",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: sk\u002dproj-hR5fpRQYVktul9Uu1MnGLNHNHMcaje5WH0EoqT0B9GelwdslT3BlbkFJ6N59FWvL5qnMx1urGw0a19Kw6qulZyBUquKaoZKrjCm9Qi3n\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (openai_api_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "openai_api_key",
+        "findings": [
+          {
+            "rule": "openai_api_key:51e1d21f",
+            "category": "openai_api_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks openai_legacy",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: sk\u002dAnTuAr01qgC0avz17OBeT3BlbkFJd2taVKu7FXhfoGKJ2HMD\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (openai_api_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "openai_api_key",
+        "findings": [
+          {
+            "rule": "openai_api_key:231f2b97",
+            "category": "openai_api_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks anthropic_api_key",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: sk\u002dant-api03-iDEwD5XJcPQManNHDzecjrXGfRiD9uHssOrRLiKq_AuMCYWzG6GJa28YcQ8T3r9kxVkpnDwngONjzwozgOyrUNlHESXyaAA\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (anthropic_api_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "anthropic_api_key",
+        "findings": [
+          {
+            "rule": "anthropic_api_key:4ca8b8d1",
+            "category": "anthropic_api_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks google_api_key",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: AI\u007aaSyJPcl0seBxcVMp74VYhTmwgOZg1ex3R-5O\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (google_api_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "google_api_key",
+        "findings": [
+          {
+            "rule": "google_api_key:ace5d55c",
+            "category": "google_api_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks google_client_secret",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: GO\u0043SPX-eoKbXgSzmRJfrvChX6iXZVniUnQi\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (google_api_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "google_api_key",
+        "findings": [
+          {
+            "rule": "google_api_key:c9d7f23c",
+            "category": "google_api_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks github_token",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: gh\u0070_jiGMlG5JB5as3CN7XHSFn5Z1lWWgqgRPhp52\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (github_token). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "github_token",
+        "findings": [
+          {
+            "rule": "github_token:546fc8c6",
+            "category": "github_token",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks github_pat",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: gi\u0074hub_pat_sO0jDPsFPkLvxtd9iMGsA9_CTqw1r2yJKZqbOn3xCRavRcx5O8JHzjy7lVdTjzNPenCx4vJVSLEdj1Y1WG\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (github_token). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "github_token",
+        "findings": [
+          {
+            "rule": "github_token:ba0c2a6f",
+            "category": "github_token",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks gitlab_token",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: gl\u0070at-modBWr7pmdaPvUnHsSUA\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (gitlab_token). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "gitlab_token",
+        "findings": [
+          {
+            "rule": "gitlab_token:bacbb395",
+            "category": "gitlab_token",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks slack_token",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: xo\u0078b-963943904839-3908995245360-OYQoFfpCL0Ee8IoaSk7x4EDJ\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (slack_token). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "slack_token",
+        "findings": [
+          {
+            "rule": "slack_token:b5df349b",
+            "category": "slack_token",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks slack_webhook",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: ht\u0074ps://hooks.slack.com/services/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\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (slack_token). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "slack_token",
+        "findings": [
+          {
+            "rule": "slack_token:8535c102",
+            "category": "slack_token",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks stripe_live_key",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: sk\u005flive_yfCze0mEPz9X7rRLeqWqdeeswFheSO95c0OPul3zHKr1SoMnBgubkkM1TSRXkDZuOydZMiQ7sVWE2Xvo7I2PF7uAKF6Jsq6OiVr\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (stripe_live_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "stripe_live_key",
+        "findings": [
+          {
+            "rule": "stripe_live_key:21ebc3b8",
+            "category": "stripe_live_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks other_api_token",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: hf\u005fke9CHOBp6kTdiTg8Am3vOjmcdtZAWmnyrK\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (other_api_token). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "other_api_token",
+        "findings": [
+          {
+            "rule": "other_api_token:251c9852",
+            "category": "other_api_token",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "blocks private_key",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Why does this fail?\nkey: -----B\u0045GIN RSA PRIVATE KEY-----\n6m78lZkoiSrLxHK9IDxK7b/+/7fIafJPrd+4bJwciZwRXLGtV3JfVZaavM/oCjOi\n5oPo2L8mvGOln/5ReIEky8LTwMMti2kdXbo6LQcd9ipVunHXLo/Jl5hDhRmYGXD6\nuSrJXEtA/I7E8J8mt0vSLrsQb/OpXVfFduPDuN+Vy4ruLGtO0AEJ7bxMQCleVHix\nei2/BWJ+iWISvft8RBhQf6QfkxKyI3sxjEFz+QE13vm5KxMabAOW7OHVf5tOZNht\nk0XLcLxBjm3olG1XvmOvCuwCKw/GFWZ8r0dgRm8sOpE1NllQkhvt/gFR3m+WYjKH\nTTCj+on71YX3YI0nizuCLEilwAxQ0bZ2QPxiEit7WVHllf569ycCjIbSzQdxHJTP\n7vHLb5SmIWuNi+uQA47JcOHXmj1bo7leXVStDfoEUtnH1i/PG/4VDV7YYsOTm3ic\ns7hdUWf8aYfWZJqjzT/adpwklCp5IDwNHvggocPFnnnyTpyK8Lu+I4XFKMA0k2u/\nOhgAbInmHxruuaJx511l6ZyJGBZAGcvarhZsZPSxW3DWv25ymySMIKttqeKKQmVh\njKpDbBMN8tFAi42ClIfD2Wt9XuRUdlNajMRYr5DgMMyy83UrwGWdBJmFUJ0q2R+L\nMu7DIzlA5aymeZkpouCDjYGuR30OYFdUWifPklmaoX8lEqZIJ/PXQHsTP9rzXIxI\njLM/cChEPSaGAX8sK+XR/zTKK8/6MAl51DDXZnMmX0rOpCKFP5PYCvZIH5aycFmA\nGG3FYRjSyktu+yRwf37c==\n-----END RSA PRIVATE KEY-----\nthanks"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (private_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "private_key",
+        "findings": [
+          {
+            "rule": "private_key:0f354876",
+            "category": "private_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "masks IDs, JWT, database password and sk- key",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "id AK\u0049AHOSF2SJQEQIQPAPH ali LT\u0041IK5IOS1hmnF9CuFvzNwBW tc AK\u0049Dz16xdHoYSq7pkz4jyvDPmHFldeE0KgjQ Bearer ey\u004ahbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1LU5qeVdiRiIsImlhdCI6MTcwMDAwMDAwMH0.BLiEKpUEK7ZbioOd5un9YUhc3Ggos9oMX63RjwmquwN url postgres://app:P3\u0039GITGWtJcDaiiY8w@db.internal:5432/app key sk\u002d3z7ZbXsfo2tvf9KLrNe4CI4bSUneKcqyx2fj1EeA3O1E2eiQ"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [
+          {
+            "type": "json.patch",
+            "ops": [
+              {
+                "op": "replace",
+                "path": "/messages/0/content",
+                "value": "id [REDACTED:aws_access_key_id] ali [REDACTED:alibaba_access_key_id] tc [REDACTED:tencent_secret_id] Bearer [REDACTED:jwt] url postgres://app:[REDACTED:db_connection_string]@db.internal:5432/app key [REDACTED:generic_sk_key]"
+              }
+            ]
+          }
+        ],
+        "findings": [
+          {
+            "rule": "aws_access_key_id:da2fb231",
+            "category": "aws_access_key_id",
+            "count": 1
+          },
+          {
+            "rule": "alibaba_access_key_id:6819821d",
+            "category": "alibaba_access_key_id",
+            "count": 1
+          },
+          {
+            "rule": "tencent_secret_id:2265677f",
+            "category": "tencent_secret_id",
+            "count": 1
+          },
+          {
+            "rule": "jwt:bf5b4109",
+            "category": "jwt",
+            "count": 1
+          },
+          {
+            "rule": "db_connection_string:1b617bf8",
+            "category": "db_connection_string",
+            "count": 1
+          },
+          {
+            "rule": "generic_sk_key:614024e8",
+            "category": "generic_sk_key",
+            "count": 1
+          }
+        ],
+        "notice": {
+          "en": "Credentials in the request were masked before it was sent",
+          "zh": "请求中的密钥已在发送前遮盖"
+        }
+      }
+    },
+    {
+      "name": "AWS pair is blocked",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "aws_access_key_id = AK\u0049AHOSF2SJQEQIQPAPH\naws_secret_access_key = Tv\u0062ZKOWrYKk3MHTCmYCSCq8knFfA8se2PQ6BU2zt"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (aws_secret_access_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "aws_secret_access_key",
+        "findings": [
+          {
+            "rule": "aws_access_key_id:da2fb231",
+            "category": "aws_access_key_id",
+            "count": 1
+          },
+          {
+            "rule": "aws_secret_access_key:7e39e605",
+            "category": "aws_secret_access_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "AWS secret next to its ID",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "AK\u0049AHOSF2SJQEQIQPAPH Tv\u0062ZKOWrYKk3MHTCmYCSCq8knFfA8se2PQ6BU2zt"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (aws_secret_access_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "aws_secret_access_key",
+        "findings": [
+          {
+            "rule": "aws_access_key_id:da2fb231",
+            "category": "aws_access_key_id",
+            "count": 1
+          },
+          {
+            "rule": "aws_secret_access_key:7e39e605",
+            "category": "aws_secret_access_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Alibaba Cloud pair is blocked",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "AccessKeyId: LT\u0041IK5IOS1hmnF9CuFvzNwBW\nAccessKeySecret: xa\u0041jrRsu7REqZCF28iE4cCQ4SHOzOW"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (alibaba_access_key_secret). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "alibaba_access_key_secret",
+        "findings": [
+          {
+            "rule": "alibaba_access_key_id:6819821d",
+            "category": "alibaba_access_key_id",
+            "count": 1
+          },
+          {
+            "rule": "alibaba_access_key_secret:163bd522",
+            "category": "alibaba_access_key_secret",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Tencent Cloud pair is blocked",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "SecretId=AK\u0049Dz16xdHoYSq7pkz4jyvDPmHFldeE0KgjQ SecretKey=nn\u0071sUXqpMItDzTj2I2Eg8m9M8aF9CtpM"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (tencent_secret_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "tencent_secret_key",
+        "findings": [
+          {
+            "rule": "tencent_secret_id:2265677f",
+            "category": "tencent_secret_id",
+            "count": 1
+          },
+          {
+            "rule": "tencent_secret_key:7636e5f0",
+            "category": "tencent_secret_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "placeholders pass",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "m",
+            "messages": [
+              {
+                "role": "user",
+                "content": "Set OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              },
+              {
+                "role": "user",
+                "content": "aws_access_key_id = AKIAIOSFODNN7EXAMPLE"
+              },
+              {
+                "role": "user",
+                "content": "postgres://user:password@localhost:5432/db and amqp://guest:guest@localhost"
+              },
+              {
+                "role": "user",
+                "content": "the sk-proj-something-very-long-and-descriptive-name-of-a-project"
+              },
+              {
+                "role": "user",
+                "content": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+              },
+              {
+                "role": "user",
+                "content": "commit c49f2c0cb280c492f4761ad7e501e5da1fe49c73 next to AKIAIOSFODNN7EXAMPLE"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [],
+        "findings": []
+      }
+    },
+    {
+      "name": "assignment is log only",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "password = \"&F\u0075hzzg7%^UggF&vTn!Rkj6x\""
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [],
+        "findings": [
+          {
+            "rule": "generic_assignment:7e221d61",
+            "category": "generic_assignment",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "assignment masked when set",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {
+            "actions": {
+              "generic_assignment": "mask"
+            }
+          }
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "password = \"&F\u0075hzzg7%^UggF&vTn!Rkj6x\""
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [
+          {
+            "type": "json.patch",
+            "ops": [
+              {
+                "op": "replace",
+                "path": "/messages/0/content",
+                "value": "password = \"[REDACTED:generic_assignment]\""
+              }
+            ]
+          }
+        ],
+        "findings": [
+          {
+            "rule": "generic_assignment:7e221d61",
+            "category": "generic_assignment",
+            "count": 1
+          }
+        ],
+        "notice": {
+          "en": "Credentials in the request were masked before it was sent",
+          "zh": "请求中的密钥已在发送前遮盖"
+        }
+      }
+    },
+    {
+      "name": "detector off",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {
+            "actions": {
+              "github_token": "off"
+            }
+          }
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "k gh\u0070_jiGMlG5JB5as3CN7XHSFn5Z1lWWgqgRPhp52"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [],
+        "findings": []
+      }
+    },
+    {
+      "name": "allowlist prefix",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {
+            "allowlist": "ghp_*\nsk\u002d3z7ZbXsfo2tvf9KLrNe4CI4bSUneKcqyx2fj1EeA3O1E2eiQ"
+          }
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "k gh\u0070_jiGMlG5JB5as3CN7XHSFn5Z1lWWgqgRPhp52 sk\u002d3z7ZbXsfo2tvf9KLrNe4CI4bSUneKcqyx2fj1EeA3O1E2eiQ"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [],
+        "findings": []
+      }
+    },
+    {
+      "name": "custom detector with group and (?i)",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {
+            "customDetectors": [
+              {
+                "name": "emp",
+                "pattern": "(?i)employee id: (\\d{6})",
+                "action": "mask"
+              },
+              {
+                "name": "acme",
+                "pattern": "\\bacme_[A-Za-z0-9]{32}\\b",
+                "action": "mask"
+              }
+            ]
+          }
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "EMPLOYEE ID: 123456 and acme_FIiEQIcvgKxFAW8mqzNkkS3i5LU4007b"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [
+          {
+            "type": "json.patch",
+            "ops": [
+              {
+                "op": "replace",
+                "path": "/messages/0/content",
+                "value": "EMPLOYEE ID: [REDACTED:custom.emp] and [REDACTED:custom.acme]"
+              }
+            ]
+          }
+        ],
+        "findings": [
+          {
+            "rule": "custom.emp:8d969eef",
+            "category": "custom.emp",
+            "count": 1
+          },
+          {
+            "rule": "custom.acme:073a93aa",
+            "category": "custom.acme",
+            "count": 1
+          }
+        ],
+        "notice": {
+          "en": "Credentials in the request were masked before it was sent",
+          "zh": "请求中的密钥已在发送前遮盖"
+        }
+      }
+    },
+    {
+      "name": "custom message",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {
+            "message": "Blocked: {detectors}."
+          }
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "gh\u0070_jiGMlG5JB5as3CN7XHSFn5Z1lWWgqgRPhp52 sk\u005flive_yfCze0mEPz9X7rRLeqWqdeeswFheSO95c0OPul3zHKr1SoMnBgubkkM1TSRXkDZuOydZMiQ7sVWE2Xvo7I2PF7uAKF6Jsq6OiVr"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "Blocked: github_token, stripe_live_key.",
+        "ruleId": "github_token",
+        "findings": [
+          {
+            "rule": "github_token:546fc8c6",
+            "category": "github_token",
+            "count": 1
+          },
+          {
+            "rule": "stripe_live_key:21ebc3b8",
+            "category": "stripe_live_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "multimodal chat",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o",
+            "stream": true,
+            "messages": [
+              {
+                "role": "user",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "read sk\u002d3z7ZbXsfo2tvf9KLrNe4CI4bSUneKcqyx2fj1EeA3O1E2eiQ"
+                  },
+                  {
+                    "type": "image_url",
+                    "image_url": {
+                      "url": "[media:0]"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [
+          {
+            "type": "json.patch",
+            "ops": [
+              {
+                "op": "replace",
+                "path": "/messages/0/content/0/text",
+                "value": "read [REDACTED:generic_sk_key]"
+              }
+            ]
+          }
+        ],
+        "findings": [
+          {
+            "rule": "generic_sk_key:614024e8",
+            "category": "generic_sk_key",
+            "count": 1
+          }
+        ],
+        "notice": {
+          "en": "Credentials in the request were masked before it was sent",
+          "zh": "请求中的密钥已在发送前遮盖"
+        }
+      }
+    },
+    {
+      "name": "responses body",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai_responses",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4.1",
+            "instructions": "Use sk\u002d3z7ZbXsfo2tvf9KLrNe4CI4bSUneKcqyx2fj1EeA3O1E2eiQ",
+            "input": [
+              {
+                "type": "function_call_output",
+                "call_id": "c1",
+                "output": "{\"token\":\"ey\u004ahbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1LU5qeVdiRiIsImlhdCI6MTcwMDAwMDAwMH0.BLiEKpUEK7ZbioOd5un9YUhc3Ggos9oMX63RjwmquwN\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [
+          {
+            "type": "json.patch",
+            "ops": [
+              {
+                "op": "replace",
+                "path": "/input/0/output",
+                "value": "{\"token\":\"[REDACTED:jwt]\"}"
+              },
+              {
+                "op": "replace",
+                "path": "/instructions",
+                "value": "Use [REDACTED:generic_sk_key]"
+              }
+            ]
+          }
+        ],
+        "findings": [
+          {
+            "rule": "jwt:bf5b4109",
+            "category": "jwt",
+            "count": 1
+          },
+          {
+            "rule": "generic_sk_key:614024e8",
+            "category": "generic_sk_key",
+            "count": 1
+          }
+        ],
+        "notice": {
+          "en": "Credentials in the request were masked before it was sent",
+          "zh": "请求中的密钥已在发送前遮盖"
+        }
+      }
+    },
+    {
+      "name": "claude body",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "claude",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "claude-sonnet-4",
+            "max_tokens": 64,
+            "system": [
+              {
+                "type": "text",
+                "text": "key sk\u002d3z7ZbXsfo2tvf9KLrNe4CI4bSUneKcqyx2fj1EeA3O1E2eiQ"
+              }
+            ],
+            "messages": [
+              {
+                "role": "user",
+                "content": [
+                  {
+                    "type": "image",
+                    "source": {
+                      "type": "base64",
+                      "media_type": "image/png",
+                      "data": "[media:0]"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [
+          {
+            "type": "json.patch",
+            "ops": [
+              {
+                "op": "replace",
+                "path": "/system/0/text",
+                "value": "key [REDACTED:generic_sk_key]"
+              }
+            ]
+          }
+        ],
+        "findings": [
+          {
+            "rule": "generic_sk_key:614024e8",
+            "category": "generic_sk_key",
+            "count": 1
+          }
+        ],
+        "notice": {
+          "en": "Credentials in the request were masked before it was sent",
+          "zh": "请求中的密钥已在发送前遮盖"
+        }
+      }
+    },
+    {
+      "name": "gemini body",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "gemini",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "contents": [
+              {
+                "role": "user",
+                "parts": [
+                  {
+                    "text": "token ey\u004ahbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1LU5qeVdiRiIsImlhdCI6MTcwMDAwMDAwMH0.BLiEKpUEK7ZbioOd5un9YUhc3Ggos9oMX63RjwmquwN"
+                  }
+                ]
+              }
+            ],
+            "generationConfig": {
+              "candidateCount": 1
+            }
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [
+          {
+            "type": "json.patch",
+            "ops": [
+              {
+                "op": "replace",
+                "path": "/contents/0/parts/0/text",
+                "value": "token [REDACTED:jwt]"
+              }
+            ]
+          }
+        ],
+        "findings": [
+          {
+            "rule": "jwt:bf5b4109",
+            "category": "jwt",
+            "count": 1
+          }
+        ],
+        "notice": {
+          "en": "Credentials in the request were masked before it was sent",
+          "zh": "请求中的密钥已在发送前遮盖"
+        }
+      }
+    },
+    {
+      "name": "form body",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai_image",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "prompt": "draw sk\u002d3z7ZbXsfo2tvf9KLrNe4CI4bSUneKcqyx2fj1EeA3O1E2eiQ",
+            "n": "1"
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [
+          {
+            "type": "json.patch",
+            "ops": [
+              {
+                "op": "replace",
+                "path": "/prompt",
+                "value": "draw [REDACTED:generic_sk_key]"
+              }
+            ]
+          }
+        ],
+        "findings": [
+          {
+            "rule": "generic_sk_key:614024e8",
+            "category": "generic_sk_key",
+            "count": 1
+          }
+        ],
+        "notice": {
+          "en": "Credentials in the request were masked before it was sent",
+          "zh": "请求中的密钥已在发送前遮盖"
+        }
+      }
+    },
+    {
+      "name": "service account JSON",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "creds {\"type\":\"service_account\",\"private_key\":\"-----B\u0045GIN RSA PRIVATE KEY-----\\n6m78lZkoiSrLxHK9IDxK7b/+/7fIafJPrd+4bJwciZwRXLGtV3JfVZaavM/oCjOi\\n5oPo2L8mvGOln/5ReIEky8LTwMMti2kdXbo6LQcd9ipVunHXLo/Jl5hDhRmYGXD6\\nuSrJXEtA/I7E8J8mt0vSLrsQb/OpXVfFduPDuN+Vy4ruLGtO0AEJ7bxMQCleVHix\\nei2/BWJ+iWISvft8RBhQf6QfkxKyI3sxjEFz+QE13vm5KxMabAOW7OHVf5tOZNht\\nk0XLcLxBjm3olG1XvmOvCuwCKw/GFWZ8r0dgRm8sOpE1NllQkhvt/gFR3m+WYjKH\\nTTCj+on71YX3YI0nizuCLEilwAxQ0bZ2QPxiEit7WVHllf569ycCjIbSzQdxHJTP\\n7vHLb5SmIWuNi+uQA47JcOHXmj1bo7leXVStDfoEUtnH1i/PG/4VDV7YYsOTm3ic\\ns7hdUWf8aYfWZJqjzT/adpwklCp5IDwNHvggocPFnnnyTpyK8Lu+I4XFKMA0k2u/\\nOhgAbInmHxruuaJx511l6ZyJGBZAGcvarhZsZPSxW3DWv25ymySMIKttqeKKQmVh\\njKpDbBMN8tFAi42ClIfD2Wt9XuRUdlNajMRYr5DgMMyy83UrwGWdBJmFUJ0q2R+L\\nMu7DIzlA5aymeZkpouCDjYGuR30OYFdUWifPklmaoX8lEqZIJ/PXQHsTP9rzXIxI\\njLM/cChEPSaGAX8sK+XR/zTKK8/6MAl51DDXZnMmX0rOpCKFP5PYCvZIH5aycFmA\\nGG3FYRjSyktu+yRwf37c==\\n-----END RSA PRIVATE KEY-----\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (private_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "private_key",
+        "findings": [
+          {
+            "rule": "private_key:8f82cd8c",
+            "category": "private_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "media reference beside a secret",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "gpt-4o-mini",
+            "messages": [
+              {
+                "role": "user",
+                "content": "[media:0] sk\u002d3z7ZbXsfo2tvf9KLrNe4CI4bSUneKcqyx2fj1EeA3O1E2eiQ"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "reject",
+        "code": "secret_guard.blocked",
+        "message": "The request contains what looks like a credential (generic_sk_key). Remove it or replace it with a placeholder and try again.",
+        "ruleId": "generic_sk_key",
+        "findings": [
+          {
+            "rule": "generic_sk_key:614024e8",
+            "category": "generic_sk_key",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "guarded members",
+      "hook": "ingress",
+      "args": [
+        {
+          "stage": "ingress",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "body": {
+            "model": "m",
+            "size": "sk\u002d3z7ZbXsfo2tvf9KLrNe4CI4bSUneKcqyx2fj1EeA3O1E2eiQ",
+            "messages": [
+              {
+                "role": "user",
+                "content": "hello there friend"
+              }
+            ]
+          }
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "effects": [],
+        "findings": []
+      }
+    },
+    {
+      "name": "answer masked",
+      "hook": "reply",
+      "args": [
+        {
+          "stage": "reply",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "stream": false,
+          "outputs": [
+            {
+              "index": 0,
+              "text": "Here is your key gh\u0070_jiGMlG5JB5as3CN7XHSFn5Z1lWWgqgRPhp52 and url postgres://a:P3\u0039GITGWtJcDaiiY8w@h/d.",
+              "offset": 0,
+              "final": true
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "mask": [
+          {
+            "index": 0,
+            "start": 17,
+            "end": 57,
+            "category": "github_token"
+          },
+          {
+            "index": 0,
+            "start": 79,
+            "end": 97,
+            "category": "db_connection_string"
+          }
+        ],
+        "hold": 0,
+        "findings": [
+          {
+            "rule": "github_token:546fc8c6",
+            "category": "github_token",
+            "count": 1
+          },
+          {
+            "rule": "db_connection_string:1b617bf8",
+            "category": "db_connection_string",
+            "count": 1
+          }
+        ],
+        "notice": {
+          "en": "Credentials in the answer were masked",
+          "zh": "回答中的密钥已遮盖"
+        }
+      }
+    },
+    {
+      "name": "answer stopped in follow mode",
+      "hook": "reply",
+      "args": [
+        {
+          "stage": "reply",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {
+            "replyMode": "follow"
+          }
+        },
+        {
+          "stream": false,
+          "outputs": [
+            {
+              "index": 0,
+              "text": "Here is your key gh\u0070_jiGMlG5JB5as3CN7XHSFn5Z1lWWgqgRPhp52 and url postgres://a:P3\u0039GITGWtJcDaiiY8w@h/d.",
+              "offset": 0,
+              "final": true
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "action": "stop",
+        "code": "secret_guard.reply_blocked",
+        "message": "The answer was stopped because it contained what looks like a credential.",
+        "findings": [
+          {
+            "rule": "github_token:546fc8c6",
+            "category": "github_token",
+            "count": 1
+          },
+          {
+            "rule": "db_connection_string:1b617bf8",
+            "category": "db_connection_string",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "answer off",
+      "hook": "reply",
+      "args": [
+        {
+          "stage": "reply",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {
+            "replyMode": "off"
+          }
+        },
+        {
+          "stream": false,
+          "outputs": [
+            {
+              "index": 0,
+              "text": "Here is your key gh\u0070_jiGMlG5JB5as3CN7XHSFn5Z1lWWgqgRPhp52 and url postgres://a:P3\u0039GITGWtJcDaiiY8w@h/d.",
+              "offset": 0,
+              "final": true
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "action": "pass"
+      }
+    },
+    {
+      "name": "stream holds a growing key",
+      "hook": "reply",
+      "args": [
+        {
+          "stage": "reply",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "stream": true,
+          "outputs": [
+            {
+              "index": 0,
+              "text": "Sure, here it is: sk-3z7ZbXsfo2tvf9KLr",
+              "offset": 0,
+              "final": false
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "mask": [],
+        "hold": 38,
+        "findings": []
+      }
+    },
+    {
+      "name": "stream masks a finished key and holds the tail",
+      "hook": "reply",
+      "args": [
+        {
+          "stage": "reply",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "stream": true,
+          "outputs": [
+            {
+              "index": 0,
+              "text": "Key sk\u002d3z7ZbXsfo2tvf9KLrNe4CI4bSUneKcqyx2fj1EeA3O1E2eiQ is set. Next we configure the database connection for the service postgres://svc:P39GITGW",
+              "offset": 0,
+              "final": false
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "mask": [
+          {
+            "index": 0,
+            "start": 4,
+            "end": 55,
+            "category": "generic_sk_key"
+          }
+        ],
+        "hold": 89,
+        "findings": [
+          {
+            "rule": "generic_sk_key:614024e8",
+            "category": "generic_sk_key",
+            "count": 1
+          }
+        ],
+        "notice": {
+          "en": "Credentials in the answer were masked",
+          "zh": "回答中的密钥已遮盖"
+        }
+      }
+    },
+    {
+      "name": "stream holds an open private key",
+      "hook": "reply",
+      "args": [
+        {
+          "stage": "reply",
+          "format": "openai",
+          "path": "/v1/chat/completions",
+          "model": "gpt-4o-mini",
+          "attempt": 0,
+          "instance": {
+            "id": "rp_golden",
+            "name": "golden"
+          },
+          "config": {}
+        },
+        {
+          "stream": true,
+          "outputs": [
+            {
+              "index": 0,
+              "text": "Key:\n-----B\u0045GIN RSA PRIVATE KEY-----\n6m78lZkoiSrLxHK9IDxK7b/+/7fIafJPrd+4bJwciZwRXLGtV3JfVZaavM/oCjOi\n5oPo2L8mvGOln/5ReIEky8LTwMMti2kdXbo6LQcd9ipVunHXLo/Jl5hDhRmYGXD6\nuSrJXEtA/I7E8J8mt0vSLrsQb/OpXVfFduPDuN+Vy4ruLGtO0AEJ7bxMQCleVHix\nei2/BWJ+iWISvft8RBhQf6QfkxKyI3sxjEFz+QE13vm5KxMabAOW7OHVf5tOZNht\nk0XLcLxB",
+              "offset": 0,
+              "final": false
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "action": "continue",
+        "mask": [],
+        "hold": 300,
+        "findings": []
+      }
+    },
+    {
+      "name": "invalid custom regex",
+      "hook": "validateConfig",
+      "args": [
+        {
+          "customDetectors": [
+            {
+              "name": "bad",
+              "pattern": "("
+            }
+          ]
+        }
+      ],
+      "expectedError": "invalid regular expression"
+    },
+    {
+      "name": "custom regex matching empty text",
+      "hook": "validateConfig",
+      "args": [
+        {
+          "customDetectors": [
+            {
+              "name": "empty",
+              "pattern": "a*"
+            }
+          ]
+        }
+      ],
+      "expectedError": "matches empty text"
+    }
+  ]
+}
