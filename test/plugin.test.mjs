@@ -39,7 +39,7 @@ test("meta is a plain JSON literal with the market key and version", () => {
   const block = source.slice(source.indexOf("export const meta = ") + "export const meta = ".length, source.indexOf("\n};\n") + 2);
   assert.deepEqual(JSON.parse(block), meta);
   assert.match(meta.key, /^[a-z0-9-]+_secret_guard$/);
-  assert.equal(meta.version, "1.0.0");
+  assert.equal(meta.version, "1.0.1");
   assert.equal(meta.apiVersion, 1);
   for (const text of [meta.description.en, meta.description.zh]) assert.ok(text.length > 0);
   for (const id of BUILT_IN_IDS) {

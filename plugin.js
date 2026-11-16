@@ -9,7 +9,7 @@ export const meta = {
   "apiVersion": 1,
   "key": "byaiden_secret_guard",
   "name": "Secret Guard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": { "name": "ByAiden", "url": "https://github.com/ByAiden" },
   "description": {
     "en": "Blocks or masks API keys, tokens, private keys and passwords in requests and model answers",
